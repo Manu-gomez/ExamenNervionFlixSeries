@@ -78,7 +78,6 @@ public class fileDataAccess {
 	 * @return Serie
 	 */
 	public static Serie reconstruirSeriePago(String[] atributo,String[] fecha) {
-		return new Serie(atributo[1],Integer.parseInt(fecha[0]), Integer.parseInt(fecha[1]), Integer.parseInt(fecha[2]), Double.parseDouble(atributo[3]), Integer.parseInt(atributo[4]));
-		//TODO CAMBIARLO PARA EL OBJETO SERIESPAGO
+		return new SeriesPago(atributo[1],Double.parseDouble(atributo[3]), Integer.parseInt(atributo[4]), Float.parseFloat(atributo[5]), Integer.parseInt(fecha[0]), Integer.parseInt(fecha[1]), Integer.parseInt(fecha[2]));
 	}
 }

@@ -12,17 +12,13 @@ public class main {
 		final String FILE=".//src//Catalogo.txt";
 		
 		Serie s1=new Serie("Dracula", 1990, 5, 12, 6, 18);
-		Serie s2=new Serie("Arrow", 2013, 8, 9, 8, 150);
+		Serie s2=new SeriesPago("Arrow", 8, 169, 5, 2013, 8, 5);
 		Serie s3=new Serie("Shameless US", 2010, 9, 6, 10, 140);
 
-		
 		List<Serie> listado=new ArrayList<>();
 		listado.add(s2);
 		listado.add(s3);
-		listado.add(s1);
-		
-
-		
+		listado.add(s1);		
 		
 		List<Serie> listaDevuelta=null;
 		try {

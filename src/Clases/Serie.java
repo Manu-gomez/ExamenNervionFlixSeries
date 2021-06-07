@@ -6,7 +6,6 @@ public class Serie implements Comparable<Serie>{
 	public static final int FACTORCAP = 3;
 	public static final double FACTORVAL = 1.5;
 	public static final double FACTORFINAL = 4;
-	private final String id="S";
 	private String nombre;
 	private LocalDate FechaDeEstreno;
 	private double valoracion=5;
@@ -34,18 +33,19 @@ public class Serie implements Comparable<Serie>{
 	public int getNumeroCapitulos() {		return numeroCapitulos;	}
 
 	/**
-	 *
+	 *	<h1>Postcondicion: </h1>
+	 *<p> Este metodo nos calculara el valor especifico, que tendremos en cuenta para calcular IndiceDeRepercucion </p>
 	 * @return int
 	 */
-	//TODO COMENTAR
 	public int getValorEspecifico() {
 		return getNumeroCapitulos()*FACTORCAP;
 	}
 	
 	/**
-	 * Precondicion:Queremos calcular el indice de repercucion que representa la importancia que
-	 *	podría tener la serie para los usuarios en la plataforma
-	 * PostCondicion:Utilizamos la valoracion y el numero de capitulo de la serie para hacer un calculo de dicho indice
+	 * <h1>Precondicion:</h1>
+	 *  <p>Queremos calcular el indice de repercucion que representa la importancia que podría tener la serie para los usuarios en la plataforma</p>
+	 * <h1> PostCondicion:</h1>
+	 * <p>Utilizamos la valoracion y el numero de capitulo de la serie para hacer un calculo de dicho indice</p>
 	 * @return float
 	 */
 	public float getIndiceDeRepercucion() {
@@ -53,24 +53,36 @@ public class Serie implements Comparable<Serie>{
 	}
 	
 	/**
-	 * 
-	 *///TODO COMENTAR
+	 * <h1>Postcondicion: </h1>
+	 * <p> Este metodo toString mostrara los datos de este objeto pero separados por coma </p>
+	 * @return String
+	 */
 	@Override
 	public String toString() {
-		return getClass().getSimpleName() +"," + nombre + "," + FechaDeEstreno + "," + valoracion + "," + numeroCapitulos + "," + getIndiceDeRepercucion();
+		return getClass().getSimpleName() 
+				+ "," + nombre 
+				+ "," + FechaDeEstreno 
+				+ "," + valoracion 
+				+ "," + numeroCapitulos;
 	}
 	
 	/**
-	 * 
-	 * @return
-	 *///TODO COMENTAR
+	 * <h1>Postcondicion:</h1>
+	 * <p>Este metodo devolvera un String que sirve para mostrar por pantalla la informacion de este objeto.</p>
+	 * @return String
+	 */
 	public String representacionCadena() {
-		return " nombre=" + nombre + ", FechaDeEstreno=" + FechaDeEstreno + ", valoracion=" + valoracion
-				+ ", numeroCapitulos=" + numeroCapitulos + ", indiceDeRepercucion=" + getIndiceDeRepercucion();
+		return " nombre=" + nombre 
+				+ ", FechaDeEstreno=" + FechaDeEstreno 
+				+ ", valoracion=" + valoracion
+				+ ", numeroCapitulos=" + numeroCapitulos 
+				+ ", indiceDeRepercucion=" + getIndiceDeRepercucion();
 	}
 	
 	/**
-	 * 
+	 * <h1>Postcondicion:</h1> 
+	 * <p>Se mirara si son el mismo tipo de objeto y luego se comparara segun sus nombres, para saber si son le mismo objeto.</p>
+	 * @return boolean
 	 */
 	@Override
 	public boolean equals(Object obj) {
