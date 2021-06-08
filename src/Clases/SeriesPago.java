@@ -29,11 +29,7 @@ public class SeriesPago extends Serie {
 	 */
 	@Override
 	public String toString() {
-		return getClass().getSimpleName() 
-				+ "," + super.getNombre() 
-				+ "," + super.getFechaDeEstreno()
-				+ "," + super.getValoracion()
-				+ "," + super.getNumeroCapitulos()
+		return super.toString()
 				+ "," + getPrecio();
 	}
 	

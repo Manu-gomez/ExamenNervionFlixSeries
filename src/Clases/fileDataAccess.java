@@ -26,8 +26,8 @@ public class fileDataAccess {
 			bw.newLine();
 			bw.flush();
 		}
-		fw.close();
 		bw.close();
+		fw.close();
 	}
 	
 	/**
@@ -57,8 +57,8 @@ public class fileDataAccess {
 			listadevolver.add(s);
 		}
 		
-		fr.close();
 		br.close();
+		fr.close();
 	
 		return listadevolver;	
 	}
