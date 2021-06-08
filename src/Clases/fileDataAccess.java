@@ -11,6 +11,24 @@ import java.util.List;
 
 public class fileDataAccess {
 	
+	
+	/**
+	 * La finalidad de este metodo es add una lista de personas en un fichero de texto.
+	 * @param listado
+	 * @param file
+	 * @throws IOException 
+	 */
+	public static void addObjetos(Serie serie, File file) throws IOException {
+		FileWriter fw= new FileWriter(file,true);
+		BufferedWriter bw= new BufferedWriter(fw);
+		
+		bw.write(serie.toString());
+		bw.newLine();
+		
+		bw.close();
+		fw.close();
+	}
+	
 	/**
 	 * La finalidad de este metodo es add una lista de personas en un fichero de texto.
 	 * @param listado
@@ -18,7 +36,7 @@ public class fileDataAccess {
 	 * @throws IOException 
 	 */
 	public static void addObjetos(List<Serie> listado, File file) throws IOException {
-		FileWriter fw= new FileWriter(file);
+		FileWriter fw= new FileWriter(file,true);
 		BufferedWriter bw= new BufferedWriter(fw);
 		
 		for (Serie p : listado) {

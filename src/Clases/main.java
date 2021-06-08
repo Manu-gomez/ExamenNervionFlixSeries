@@ -74,7 +74,7 @@ public class main {
 		}
 		case 3: {
 			System.out.println("Menu gestion");
-			Menu.casoMenu3(sc);
+			Menu.casoMenu3(sc,filetext);
 			break;
 		}
 		default:
