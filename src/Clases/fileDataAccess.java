@@ -13,11 +13,16 @@ public class fileDataAccess {
 	
 	
 	/**
-	 * La finalidad de este metodo es add una lista de personas en un fichero de texto.
-	 * @param listado
-	 * @param file
-	 * @throws IOException 
-	 */
+	 * Cabecera: public static void addObjetos(Serie serie, File file) throws IOException <br>
+	 * Descripcion: La finalidad de este metodo es add una serie en un fichero de texto.<br>
+	 * Precondiciones: La serie introducida no puede ser null, ni tampoco el file. <br>
+	 * Postcondiciones: Se aniadira un objeto serie al fichero.<br>
+	 * Entrada: Serie serie, File file <br>
+	 * Salida: <br>
+	 * @param serie, file<br>
+	 * @return <br>
+	 * @throws IOException
+	 */	
 	public static void addObjetos(Serie serie, File file) throws IOException {
 		FileWriter fw= new FileWriter(file,true);
 		BufferedWriter bw= new BufferedWriter(fw);
@@ -30,11 +35,16 @@ public class fileDataAccess {
 	}
 	
 	/**
-	 * La finalidad de este metodo es add una lista de personas en un fichero de texto.
-	 * @param listado
-	 * @param file
-	 * @throws IOException 
-	 */
+	 * Cabecera: public static void addObjetos(List<Serie> listado, File file) throws IOException <br>
+	 * Descripcion: La finalidad de este metodo es add una lista de series en un fichero de texto.<br>
+	 * Precondiciones: La serie introducida no puede ser null, ni tampoco el file. <br>
+	 * Postcondiciones: Se aniadira una lista de objetos serie al fichero.<br>
+	 * Entrada: List<Serie> listado, File file <br>
+	 * Salida: <br>
+	 * @param listado, file<br>
+	 * @return <br>
+	 * @throws IOException
+	 */	
 	public static void addObjetos(List<Serie> listado, File file) throws IOException {
 		FileWriter fw= new FileWriter(file,true);
 		BufferedWriter bw= new BufferedWriter(fw);
@@ -49,12 +59,16 @@ public class fileDataAccess {
 	}
 	
 	/**
-	 * Este metodo devuelve una lista con las Series, que tenga el fichero que le pasamos por parametros.
-	 *  
-	 * @param file
-	 * @return List<Persona>
-	 * @throws IOException 
-	 */
+	 * Cabecera: public static List<Serie> obtenerListaObjetosFichero(File file) throws IOException <br>
+	 * Descripcion: Este metodo devuelve una lista con las Series, que tenga el fichero que le pasamos por parametros.<br>
+	 * Precondiciones: El fichero introducido no puede ser null <br>
+	 * Postcondiciones: Se aniadira una lista de objetos serie al fichero.<br>
+	 * Entrada: File file <br>
+	 * Salida: <br>
+	 * @param file<br>
+	 * @return List<Serie><br>
+	 * @throws IOException
+	 */	
 	public static List<Serie> obtenerListaObjetosFichero(File file) throws IOException {
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
@@ -82,10 +96,16 @@ public class fileDataAccess {
 	}
 	
 	/**
-	 * Este metodo reconstruira el un objeto Serie segun un array que le pasemos, con todos sus atributos.
-	 * @param atributo
-	 * @return Serie
-	 */
+	 * Cabecera: public static Serie reconstruirSerie(String[] atributo,String[] fecha) <br>
+	 * Descripcion:Este metodo reconstruira el un objeto Serie segun un array que le pasemos, con todos sus atributos.<br>
+	 * Precondiciones: Ninguna de las dos arrays introducids pueden ser null <br>
+	 * Postcondiciones: Se aniadira una lista de objetos serie al fichero.<br>
+	 * Entrada: String[] atributo,String[] fecha <br>
+	 * Salida: <br>
+	 * @param atributo, fecha<br>
+	 * @return Serie<Serie><br>
+	 * @throws IOException
+	 */	
 	public static Serie reconstruirSerie(String[] atributo,String[] fecha) {
 		return new Serie(atributo[1],Integer.parseInt(fecha[0]), Integer.parseInt(fecha[1]), Integer.parseInt(fecha[2]), Double.parseDouble(atributo[3]), Integer.parseInt(atributo[4]));
 		
