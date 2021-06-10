@@ -26,12 +26,25 @@ public class fileDataAccess {
 	public static void addObjetos(Serie serie, File file) throws IOException {
 		FileWriter fw= new FileWriter(file,true);
 		BufferedWriter bw= new BufferedWriter(fw);
+	
+		try {
+			bw.write(serie.toString());
+			bw.newLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				bw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			try {
+				fw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		
-		bw.write(serie.toString());
-		bw.newLine();
-		
-		bw.close();
-		fw.close();
 	}
 	
 	/**
@@ -49,13 +62,26 @@ public class fileDataAccess {
 		FileWriter fw= new FileWriter(file,true);
 		BufferedWriter bw= new BufferedWriter(fw);
 		
-		for (Serie p : listado) {
-			bw.write(p.toString());
-			bw.newLine();
-			bw.flush();
+		try {
+			for (Serie p : listado) {
+				bw.write(p.toString());
+				bw.newLine();
+				bw.flush();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				bw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			try {
+				fw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		bw.close();
-		fw.close();
 	}
 	
 	/**
@@ -78,20 +104,33 @@ public class fileDataAccess {
 		List<Serie> listadevolver=new ArrayList<>();
 		String [] lista;
 		String[] fecha;
-		while((linea=br.readLine())!= null) {
-			lista=linea.split(",");
-			fecha=lista[2].split("-");
-			if (lista[0].getClass().getSimpleName().equals(SeriesPago.class.getSimpleName())) {
-				s=reconstruirSeriePago(lista, fecha);
-			}else {
-				s=reconstruirSerie(lista,fecha);
+
+		try {
+			while((linea=br.readLine())!= null) {
+				lista=linea.split(",");
+				fecha=lista[2].split("-");
+				if (lista[0].getClass().getSimpleName().equals(SeriesPago.class.getSimpleName())) {
+					s=reconstruirSeriePago(lista, fecha);
+				}else {
+					s=reconstruirSerie(lista,fecha);
+				}
+				listadevolver.add(s);
 			}
-			listadevolver.add(s);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			try {
+				fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
-		br.close();
-		fr.close();
-	
 		return listadevolver;	
 	}
 	
